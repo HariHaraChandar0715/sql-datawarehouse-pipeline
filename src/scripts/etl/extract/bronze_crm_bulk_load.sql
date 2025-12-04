@@ -20,7 +20,7 @@ begin
         print'>>>>. Inserting Data into : bronze.crm_customer';
 
         BULK INSERT bronze.crm_customer
-        FROM '/data/source_crm/source_crm/cust_info.csv'
+        FROM '/data/source_crm/source_crm/bronze.crm_customer.csv'
         WITH (
             FORMAT = 'CSV',
             FIRSTROW = 2
@@ -84,5 +84,9 @@ begin
 
     end catch
 end
+
+-- Run as sysadmin
+GRANT ADMINISTER BULK OPERATIONS TO SA;
+
 
 
